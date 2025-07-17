@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import User
+from .models import User,Patient
 from django.contrib.auth.admin import UserAdmin
 # Register your models here.
 
@@ -23,3 +23,4 @@ class NewUserAdmin(UserAdmin):
     filter_horizontal = ()
 
 admin.site.register(User,NewUserAdmin)
+admin.site.register(Patient)

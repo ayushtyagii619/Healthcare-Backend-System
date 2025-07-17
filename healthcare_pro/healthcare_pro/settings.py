@@ -87,7 +87,17 @@ DATABASES = {
         'PORT': config('DB_PORT', default='5432'),
     }
 }
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
+}
+from datetime import timedelta
 
+SIMPLE_JWT = {
+        'ACCESS_TOKEN_LIFETIME': timedelta(minutes=25),  # Example: 5 minutes
+        'REFRESH_TOKEN_LIFETIME': timedelta(days=1),   # Example: 7 days
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators

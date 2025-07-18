@@ -201,140 +201,92 @@ Authenticated users can create and manage **only their own patients.**
 **Delete Patient**
 **DELETE** ```/api/patients/<id>/```
 
-3. Doctor Management APIs
+---
+
+3. ## Doctor Management APIs
 Authenticated users can create, update, or delete doctors.
 
-Add a Doctor
-POST /api/doctors/
+**Add a Doctor**
+**POST** ```/api/doctors/```
 
-json
-Copy
-Edit
+```json
+
 {
     "name": "Dr. Alice",
     "specialization": "Cardiologist",
     "email": "alice@example.com",
     "phone": "9876543211"
 }
-List All Doctors
-GET /api/doctors/
+```
+---
 
-Get Specific Doctor
-GET /api/doctors/<id>/
+**List All Doctors**
+**GET** ```/api/doctors/```
 
-Update Doctor
-PUT /api/doctors/<id>/
+**Get Specific Doctor**
+**GET** ```/api/doctors/<id>/```
 
-json
-Copy
-Edit
+**Update Doctor**
+**PUT** ```/api/doctors/<id>/```
+
+```json
+
 {
     "name": "Dr. Alice Brown",
     "specialization": "Cardiologist",
     "email": "alicebrown@example.com",
     "phone": "9876543211"
 }
-Delete Doctor
-DELETE /api/doctors/<id>/
+```
+---
 
-4. Patient-Doctor Mapping APIs
+**Delete Doctor**
+**DELETE** ```/api/doctors/<id>/```
+
+---
+
+4. ## Patient-Doctor Mapping APIs
 Authenticated users can assign doctors to patients, list all mappings, and remove them.
 
-Assign a Doctor to a Patient
-POST /api/mappings/
+**Assign a Doctor to a Patient**
+**POST** ```/api/mappings/```
 
-json
-Copy
-Edit
+```json
 {
     "patient": 1,
     "doctor": 2
 }
-List All Mappings
-GET /api/mappings/
+```
+---
 
-List Doctors for a Specific Patient
-GET /api/mappings/<patient_id>/
+**List All Mappings**
+**GET** ```/api/mappings/```
 
-Remove a Mapping
-DELETE /api/mappings/delete/<id>/
+**List Doctors for a Specific Patient**
+**GET** ```/api/mappings/<patient_id>/```
 
-Postman Testing
-All tested endpoints are available in the exported Postman collection:
-
-bash
-Copy
-Edit
-/postman_tests/Healthcare_Backend_System.postman_collection.json
-You can import this file into Postman to test all APIs with sample requests and responses.
-
-Notes
-.env file is ignored in Git for security (.gitignore is configured).
-
-Use Authorization: Bearer <access_token> in headers for all patient, doctor, and mapping APIs.
-
-PostgreSQL must be running, and database credentials should match your .env.
-
-License
-This project is for educational and assignment purposes.
-Feel free to fork and use it for your own learning.
-
-yaml
-Copy
-Edit
+**Remove a Mapping**
+**DELETE** ```/api/mappings/delete/<id>/```
 
 ---
 
-Would you like me to also:
-1. **Include screenshots of Postman API responses** (and show how to reference them in the README)?  
-2. Or **make this README more professional (with badges, sections like "Tech Stack" and "Contributors")** so it looks portfolio-ready?  
-Or **both?** Which do you prefer?
+## Postman Testing
+All tested endpoints are available in the exported Postman collection:
 
+```bash
 
+/postman_tests/Healthcare_Backend_System.postman_collection.json
+```
+---
 
+You can import this file into Postman to test all APIs with sample requests and responses.
 
+## Notes
+- ```.env``` file is ignored in Git for security (```.gitignore``` is configured).
+- Use ```Authorization: Bearer <access_token>``` in headers for all patient, doctor, and mapping APIs.
+- PostgreSQL must be running, and database credentials should match your ```.env```.
 
+---
 
-
-You said:
-is it necessary to provide my databse password ?
-
-
-ChatGPT said:
-No, you should never commit your actual database password (or any sensitive credentials) to GitHub.
-
-That’s exactly why we used a .env file and added it to .gitignore.
-Here’s what you should do:
-
-What to Commit
-In your .env.example (a sample file), include placeholder values like this:
-
-ini
-Copy
-Edit
-SECRET_KEY=your_secret_key_here
-DEBUG=True
-DB_NAME=healthcare_db
-DB_USER=postgres
-DB_PASSWORD=your_password_here
-DB_HOST=localhost
-DB_PORT=5432
-Commit .env.example (not the real .env), so others know which environment variables they need.
-
-The real .env (with your password) stays only on your machine.
-
-Update README for Security
-Instead of asking users to edit .env directly, instruct them like this (update your README’s setup section):
-
-bash
-Copy
-Edit
-cp .env.example .env
-# Edit .env and replace placeholder values with your actual credentials
-This way:
-
-Reviewers/teammates can run your project without seeing your actual password.
-
-You keep your credentials private.
-
-
+## Contact
+**email:** ```ayush952877@gmail.com```

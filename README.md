@@ -64,100 +64,109 @@ The system allows **user registration and login**, along with full **CRUD operat
 
 3. **Install dependencies**
 
-bash
-Copy
-Edit
+```bash
 pip install -r requirements.txt
-Configure Environment Variables
+```
+---
+
+4. **Configure Environment Variables**
 Create a .env file in the project root (this file is excluded via .gitignore):
 
-ini
-Copy
-Edit
-SECRET_KEY=your_secret_key
-DEBUG=True
+```ini
 DB_NAME=healthcare_db
 DB_USER=postgres
 DB_PASSWORD=your_db_password
 DB_HOST=localhost
 DB_PORT=5432
-Apply Migrations
+```
+---
 
-bash
-Copy
-Edit
+5. **Apply Migrations** 
+
+```bash
+
 python manage.py makemigrations
 python manage.py migrate
-Run Server
+```
+---
+6. **Run Server**
 
-bash
-Copy
-Edit
+```bash
+
 python manage.py runserver
-API Documentation
+```
+---
+
+## API Documentation
 All endpoints are prefixed with /api/.
-Authentication is required for patients, doctors, and mappings APIs via JWT.
+Authentication is required for **patients**, **doctors**, and **mappings APIs** via JWT.
 
-1. Authentication APIs
-Register a New User
-POST /api/auth/register/
+1. ## Authentication APIs
+**Register a New User**
+POST ```/api/auth/register/```
 
-Request Body:
+**Request Body:**
 
-json
-Copy
-Edit
+```json
+
 {
     "name": "Ayush",
     "email": "ayush@example.com",
     "password": "123456"
 }
-Response:
+```
+---
 
-json
-Copy
-Edit
+**Response:**
+
+```json
 {
     "id": 1,
     "email": "ayush@example.com",
     "token": "eyJhbGciOiJIUzI1..."
 }
-Login User
-POST /api/auth/login/
+```
+---
 
-Request Body:
+**Login User**
+**POST** ```/api/auth/login/```
 
-json
-Copy
-Edit
+**Request Body:**
+
+```json
+
 {
     "email": "ayush@example.com",
     "password": "123456"
 }
-Response:
+```
+---
 
-json
-Copy
-Edit
+**Response:**
+
+```json
 {
     "access": "eyJhbGciOiJIUzI1...",
     "refresh": "eyJhbGciOiJIUzI1..."
 }
+```
+---
+
 Include the access token in headers for subsequent requests:
 
-makefile
-Copy
-Edit
+```makefile
 Authorization: Bearer <access_token>
-2. Patient Management APIs
-Authenticated users can create and manage only their own patients.
+```
+---
 
-Add a Patient
-POST /api/patients/
+2. ## Patient Management APIs
+Authenticated users can create and manage **only their own patients.**
 
-json
-Copy
-Edit
+**Add a Patient**
+**POST** ```/api/patients/```
+
+```json
+
 {
     "name": "John Doe",
     "age": 35,
@@ -165,18 +174,19 @@ Edit
     "address": "123 Street",
     "phone": "9876543210"
 }
-List All Patients (Created by Authenticated User)
-GET /api/patients/
+```
+---
 
-Get Specific Patient
-GET /api/patients/<id>/
+**List All Patients (Created by Authenticated User)**
+**GET** ```/api/patients/```
 
-Update Patient
-PUT /api/patients/<id>/
+**Get Specific Patient**
+**GET** ```/api/patients/<id>/```
 
-json
-Copy
-Edit
+**Update Patient**
+**PUT** ```/api/patients/<id>/```
+
+```json
 {
     "name": "John Smith",
     "age": 36,
@@ -184,8 +194,12 @@ Edit
     "address": "456 Avenue",
     "phone": "9876543210"
 }
-Delete Patient
-DELETE /api/patients/<id>/
+```
+
+---
+
+**Delete Patient**
+**DELETE** ```/api/patients/<id>/```
 
 3. Doctor Management APIs
 Authenticated users can create, update, or delete doctors.

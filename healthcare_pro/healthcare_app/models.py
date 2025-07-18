@@ -48,3 +48,13 @@ class Patient(models.Model):
 
     def __str__(self):
         return self.name
+
+class Doctor(models.Model):
+    name = models.CharField(max_length=200)
+    specialization = models.CharField(max_length=200)
+    email = models.EmailField(unique=True)
+    phone = models.CharField(max_length=13)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.name

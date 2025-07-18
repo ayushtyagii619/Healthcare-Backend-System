@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import User,Patient, Doctor
+from .models import User,Patient, Doctor, PatientDoctorMapping
 from rest_framework.validators import UniqueValidator
 from django.contrib.auth.password_validation import validate_password
 
@@ -44,3 +44,11 @@ class DoctorSerializer(serializers.ModelSerializer):
         model = Doctor
         fields = '__all__'
         read_only_fields = ['created_at']
+    
+class PatientDoctorMappingSerializer(serializers.ModelSerializer):
+    patient_name = serializers.CharField(source='patient.name', read_only=True)
+    doctor_name = serializers.CharField(source='doctor.name', read_only=True)
+
+    class Meta:
+        model = PatientDoctorMapping
+        fields = ['id', 'patient', 'doctor', 'patient_name', 'doctor_name', 'assigned_at']

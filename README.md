@@ -290,5 +290,5 @@ You can import this file into Postman to test all APIs with sample requests and 
 
 ## Contact
 **Email:**
-📧 [ayush@example.com](mailto:ayush@example.com)
+📧 [ayush952877@gmail.com](mailto:ayush952877@gmail.com)
 

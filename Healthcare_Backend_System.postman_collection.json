@@ -1,0 +1,636 @@
+{
+	"info": {
+		"_postman_id": "8dace71f-5200-4dfa-9341-071bcb994a74",
+		"name": "Healthcare Backend System",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27165334"
+	},
+	"item": [
+		{
+			"name": "Register User",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \r\n        \"user2@gmail.com\"\r\n    ,\r\n    \"password\": \r\n        \"Tyagi@2588\"\r\n    ,\r\n    \"password2\": \r\n        \"Tyagi@2588\"\r\n    ,\r\n    \"name\": \r\n        \"user2\"\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/auth/register/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"auth",
+						"register",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login User",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \r\n        \"user1@gmail.com\"\r\n    ,\r\n    \"password\": \r\n        \"Tyagi@2588\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/auth/login/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"auth",
+						"login",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add new patient",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUyODI0ODQ5LCJpYXQiOjE3NTI4MjMzNDksImp0aSI6ImFmODQ2ZGIwOGFiNTQ5ZjQ4MmE4NWIxOWJhZGI4OTE2IiwidXNlcl9pZCI6Mn0.K-_TraOmKAt4lh4WafTPeddPVXTmeySNaLfJFZRCMBI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \r\n        \"Gungun\"\r\n    ,\r\n    \"age\": \r\n        \"22\"\r\n    ,\r\n    \"gender\": \r\n        \"Female\"\r\n    ,\r\n    \"address\": \r\n        \"Bijnor\"\r\n    ,\r\n    \"phone\": \r\n        \"7351456961\"\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/patients/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"patients",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve all patients",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUyODI0ODQ5LCJpYXQiOjE3NTI4MjMzNDksImp0aSI6ImFmODQ2ZGIwOGFiNTQ5ZjQ4MmE4NWIxOWJhZGI4OTE2IiwidXNlcl9pZCI6Mn0.K-_TraOmKAt4lh4WafTPeddPVXTmeySNaLfJFZRCMBI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/patients/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"patients",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get details of a specific patient by id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUyODI0ODQ5LCJpYXQiOjE3NTI4MjMzNDksImp0aSI6ImFmODQ2ZGIwOGFiNTQ5ZjQ4MmE4NWIxOWJhZGI4OTE2IiwidXNlcl9pZCI6Mn0.K-_TraOmKAt4lh4WafTPeddPVXTmeySNaLfJFZRCMBI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/patients/1/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"patients",
+						"1",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update the details",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUyODI0ODQ5LCJpYXQiOjE3NTI4MjMzNDksImp0aSI6ImFmODQ2ZGIwOGFiNTQ5ZjQ4MmE4NWIxOWJhZGI4OTE2IiwidXNlcl9pZCI6Mn0.K-_TraOmKAt4lh4WafTPeddPVXTmeySNaLfJFZRCMBI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \r\n        \"Abhay Tyagi\",\r\n    \"age\":\"24\",\r\n    \"gender\":\"Male\",\r\n    \"address\":\"Pune\",\r\n    \"phone\":\"6396457788\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/patients/1/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"patients",
+						"1",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a record",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUyODI0ODQ5LCJpYXQiOjE3NTI4MjMzNDksImp0aSI6ImFmODQ2ZGIwOGFiNTQ5ZjQ4MmE4NWIxOWJhZGI4OTE2IiwidXNlcl9pZCI6Mn0.K-_TraOmKAt4lh4WafTPeddPVXTmeySNaLfJFZRCMBI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/patients/1/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"patients",
+						"1",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add a new doctor",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUyODI0ODQ5LCJpYXQiOjE3NTI4MjMzNDksImp0aSI6ImFmODQ2ZGIwOGFiNTQ5ZjQ4MmE4NWIxOWJhZGI4OTE2IiwidXNlcl9pZCI6Mn0.K-_TraOmKAt4lh4WafTPeddPVXTmeySNaLfJFZRCMBI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Dr. Shruti Jain\",\r\n    \"specialization\":\"Homeopathy\",\r\n    \"email\":\"shruti0103@gmail.com\",\r\n    \"phone\":\"+919526447821\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/doctors/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"doctors",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all Doctors",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUyODI0ODQ5LCJpYXQiOjE3NTI4MjMzNDksImp0aSI6ImFmODQ2ZGIwOGFiNTQ5ZjQ4MmE4NWIxOWJhZGI4OTE2IiwidXNlcl9pZCI6Mn0.K-_TraOmKAt4lh4WafTPeddPVXTmeySNaLfJFZRCMBI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/doctors/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"doctors",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get details of specific doctor",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUyODI0ODQ5LCJpYXQiOjE3NTI4MjMzNDksImp0aSI6ImFmODQ2ZGIwOGFiNTQ5ZjQ4MmE4NWIxOWJhZGI4OTE2IiwidXNlcl9pZCI6Mn0.K-_TraOmKAt4lh4WafTPeddPVXTmeySNaLfJFZRCMBI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/doctors/2/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"doctors",
+						"2",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update doctor details",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUyODI0ODQ5LCJpYXQiOjE3NTI4MjMzNDksImp0aSI6ImFmODQ2ZGIwOGFiNTQ5ZjQ4MmE4NWIxOWJhZGI4OTE2IiwidXNlcl9pZCI6Mn0.K-_TraOmKAt4lh4WafTPeddPVXTmeySNaLfJFZRCMBI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Dr. Shruti Jain\",\r\n    \"specialization\":\"Homeopathy and Heart\",\r\n    \"email\":\"shruti0103@gmail.com\",\r\n    \"phone\":\"+919526447821\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/doctors/2/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"doctors",
+						"2",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a doctor",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUyODI0ODQ5LCJpYXQiOjE3NTI4MjMzNDksImp0aSI6ImFmODQ2ZGIwOGFiNTQ5ZjQ4MmE4NWIxOWJhZGI4OTE2IiwidXNlcl9pZCI6Mn0.K-_TraOmKAt4lh4WafTPeddPVXTmeySNaLfJFZRCMBI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Dr. Shruti Jain\",\r\n    \"specialization\":\"Homeopathy and Heart\",\r\n    \"email\":\"shruti0103@gmail.com\",\r\n    \"phone\":\"+919526447821\"\r\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/doctors/2/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"doctors",
+						"2",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Assign a doctor to patient",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUyODMyODQ2LCJpYXQiOjE3NTI4MjUzNDYsImp0aSI6IjQ2ZWE4Mjc1YjdhZDQ5ZDg5YmMyMDVkMGE4NWZjYjZjIiwidXNlcl9pZCI6Mn0.xMQqjDmzNYlO1YgUVjIzi5vuEX70myPUSsCN9_3so4Y",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"patient\":\"3\",\r\n    \"doctor\":\"1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/mappings/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"mappings",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all patient doctor mapping",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUyODMyODQ2LCJpYXQiOjE3NTI4MjUzNDYsImp0aSI6IjQ2ZWE4Mjc1YjdhZDQ5ZDg5YmMyMDVkMGE4NWZjYjZjIiwidXNlcl9pZCI6Mn0.xMQqjDmzNYlO1YgUVjIzi5vuEX70myPUSsCN9_3so4Y",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/mappings/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"mappings",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all doctors assigned to a specific patient.",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUyODMyODQ2LCJpYXQiOjE3NTI4MjUzNDYsImp0aSI6IjQ2ZWE4Mjc1YjdhZDQ5ZDg5YmMyMDVkMGE4NWZjYjZjIiwidXNlcl9pZCI6Mn0.xMQqjDmzNYlO1YgUVjIzi5vuEX70myPUSsCN9_3so4Y",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/mappings/3/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"mappings",
+						"3",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remove a doctor from a patient.",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUyODMyODQ2LCJpYXQiOjE3NTI4MjUzNDYsImp0aSI6IjQ2ZWE4Mjc1YjdhZDQ5ZDg5YmMyMDVkMGE4NWZjYjZjIiwidXNlcl9pZCI6Mn0.xMQqjDmzNYlO1YgUVjIzi5vuEX70myPUSsCN9_3so4Y",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/mappings/delete/3/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"mappings",
+						"delete",
+						"3",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
